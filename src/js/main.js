@@ -7,5 +7,5 @@ window.addEventListener('DOMContentLoaded', () => {
     slider.render(); 
 
     const player = new VideoPlayer('.showup .play', '.overlay');
-    player.play(); 
+    player.init(); 
 });
