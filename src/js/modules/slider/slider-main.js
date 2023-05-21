@@ -40,20 +40,22 @@ export default class MainSlider extends Slider {
 
     render() {
         try {
-            this.hansonBlock = document.querySelector('.hanson');
-        } catch(error) {}
-
-        this.btns.forEach(item => {
-            item.addEventListener('click', () => {
-                this.plusSlides(1);
+            try {
+                this.hansonBlock = document.querySelector('.hanson');
+            } catch(error) {}
+    
+            this.btns.forEach(item => {
+                item.addEventListener('click', () => {
+                    this.plusSlides(1);
+                });
+    
+                item.parentNode.previousElementSibling.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.slideIndex = 1;
+                    this.showSlides(this.slideIndex);
+                })
             });
-
-            item.parentNode.previousElementSibling.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.slideIndex = 1;
-                this.showSlides(this.slideIndex);
-            })
-        });
-        this.showSlides(this.slideIndex);
+            this.showSlides(this.slideIndex);
+        } catch(error) {}
     }
 }
